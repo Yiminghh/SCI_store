@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <script src="lib/echarts.js"></script>
+    <script src="lib/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+<!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+<div id="main" style="width: 1200px;height:800px;"></div>
+<script type="text/javascript">
+    // 地图数据文件
+    var map_data = 'data/USA_twitter.json';
+    var title = 'local';
+    // cnl数据文件
+    var cnl_data = 'data/state360_local.json';
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    $.get(map_data, function (usaJson) {
+      myChart.hideLoading();
+
+      echarts.registerMap('USA', usaJson,
+      {
+        AK: {left: -131,top: 25, width: 15},
+        HI: {left: -110,top: 28, width: 5},
+      });
+      option = {
+        title: {
+          text: title,
+          subtext: '',
+          left: 'right'
+        },
+        tooltip: {
+          trigger: 'item',
+          showDelay: 0,
+          transitionDuration: 0.2
+        },
+        visualMap: {
+          left: 'right',
+          min: 0.5,
+          max: 1.0,
+          inRange: {
+            color: [
+                '#fff5f0',
+                '#fff5f0',
+                '#fae4d7',
+                '#f5d0be',
+                '#f3bda7',
+                '#fcbda3',
+                '#fc9474',
+                '#fb6a47',
+                '#ef3523',
+                '#cd0910',
+                '#a70105'
+              // '#313695',
+              // '#4575b4',
+              // '#74add1',
+              // '#abd9e9',
+              // '#e0f3f8',
+              // '#ffffbf',
+              // '#fee090',
+              // '#fdae61',
+              // '#f46d43',
+              // '#d73027',
+              // '#a50026'
+            ]
+          },
+          text: ['High', 'Low'],
+          calculable: true
+        },
+        toolbox: {
+          show: true,
+          //orient: 'vertical',
+          left: 'left',
+          top: 'top',
+          feature: {
+            dataView: { readOnly: false },
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        series: [
+          {
+            name: 'USA PopEstimates',
+            type: 'map',
+            roam: true,
+            map: 'USA',
+            label:{show:true},
+            emphasis: {
+              label: {
+                show: true
+              }
+            },
+            data: [],
+          }
+        ]
+      };
+      myChart.setOption(option);
+    });
+
+    // 异步加载数据
+    $.get(cnl_data).done(function(data) {
+      // 填入数据
+      myChart.setOption({
+        series: [
+          {
+            // 根据名字对应到相应的系列
+            data: data.values
+          }
+        ]
+      });
+    });
+</script>
+</body>
+</html>
