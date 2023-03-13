@@ -9,15 +9,19 @@
 </head>
 <body>
 <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
-<div id="main" style="width: 1200px;height:800px;"></div>
+<div id="main" style="width: 800px;height:495px;"></div>
 <script type="text/javascript">
     // 地图数据文件
     var map_data = 'data/USA_twitter.json';
-    var title = 'local';
+    //标题  'local', 'Integrated', 'Centralized'
+    var title = 'Local';
     // cnl数据文件
     var cnl_data = 'data/state360_local.json';
     // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('main'));
+    // 先将图表渲染为SVG，echarts.init设置为svg渲染
+    //var myChart = echarts.init(document.getElementById('main'));
+    var myChart = echarts.init(document.getElementById('main'),null,{renderer: 'svg'});
+
     $.get(map_data, function (usaJson) {
       myChart.hideLoading();
 
@@ -39,7 +43,7 @@
         },
         visualMap: {
           left: 'right',
-          min: 0.5,
+          min: 0.3,
           max: 1.0,
           inRange: {
             color: [
