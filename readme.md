@@ -38,9 +38,17 @@
 
 # HiGCN
 
+## 1. plot_bar_stack.py
+![](./fig/Actor_stackbar.svg)
 
 
+# HiMnet
 
+## plot_group_stack_bar.oy
+![](./fig/group_stact_bar.svg)
+
+## line_graph_for_figeys.py
+![](./fig/himnet_figeys.svg)
 
 
 
