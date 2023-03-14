@@ -58,14 +58,14 @@ plt.bar(index, height=data[:,0], bottom=0,                         width=bar_wid
 
 # zorder=10设置图层位置
 #plt.axhline(y=0.2, ls="-", c="gray", linewidth=0.3)#添加水平直线
-plt.grid(axis='y', c="#d9d9d9",zorder=2)
+plt.grid(axis='y', c="#d9d9d9",zorder=2)#添加水平直线
 
 fontsize=13
 plt.legend(loc=2,borderpad=0.1,bbox_to_anchor=(1.01,1), fontsize=fontsize-1)  # 显示图例
 plt.xticks(index + bar_width/4, tag, rotation=55)
 plt.tick_params(labelsize=fontsize, zorder=20)
 # plt.ylim(0,0.6)
-plt.ylabel(r'${}|\gamma_{2,k}|}$', size=fontsize+3)  # 纵坐标轴标题
+#plt.ylabel(r'${}|\gamma_{2,k}|}$', size=fontsize+3)  # 纵坐标轴标题
 plt.xlabel(r'${n_2^\prime/n_2-1}$', size=fontsize+3)
 plt.title(name, size=fontsize+3)
 # ax=plt.gca()
@@ -76,5 +76,5 @@ plt.title(name, size=fontsize+3)
 plt.gcf().subplots_adjust(left=0.13, right=0.8, bottom=0.22, top=0.945)
 #plt.figure(figsize=(300,50))
 
-plt.savefig('{}_stackbar.svg'.format(name), format='svg', dpi=150, bbox_inches='tight')
+plt.savefig('../fig/{}_stackbar.svg'.format(name), format='svg', dpi=600, bbox_inches='tight')
 plt.show()
