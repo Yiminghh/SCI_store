@@ -20,7 +20,8 @@ x_tag = ['KS','DC','HI','ND','RCNN','MRCNN','HIMnet']
 #color_list=['#43b263','#94d695','#26bccf','#a0d9e4','#b1c3e7','#c7afd6','#fdc07c','#fe9a99','#f04b3c','#bc1f24','#bc1f24']
 color_list=['#5ea862','#bcde80','#26bccf','#a0d9e4','#c7afd6','#fdc07c','#f04b3c']
 #hatch_list=['----','O.O.','//////','OOO', '\\\\\\\\\\\\', 'ooo', '++++', '....','xxxx',  '***','||||']
-hatch_list=['xxxx','....','xxxx','....', 'xxxx', '....', 'xxxx', '....','xxxx',  '....','xxxx']
+#hatch_list=['xxxx','....','xxxx','....', 'xxxx', '....', 'xxxx', '....','xxxx',  '....','xxxx']
+hatch_list=['','','','', '', '', '', '','',  '','']
 graph_list=[]
 index = np.array(range(len(x_tag)),dtype=float)
 for i in range(len(x_tag)):
@@ -46,7 +47,7 @@ for x in range(len(x_tag)):
                 hatch=hatch_list[y],
                 edgecolor='w',
                 label='k={}'.format(1.0+0.2*y),
-                zorder=10)
+                zorder=2)
 
 
 #%% Hep
@@ -70,7 +71,7 @@ for x in range(len(x_tag)):
                 hatch=hatch_list[y],
                 edgecolor='w',
                 label='k={}'.format(1.0+0.2*y),
-                zorder=10)
+                zorder=2)
 
 
 #%% citeseer
@@ -94,7 +95,7 @@ for x in range(len(x_tag)):
 #                 hatch=hatch_list[y],
 #                 edgecolor='w',
 #                 label='k={}'.format(1.0+0.2*y),
-#                 zorder=10)
+#                 zorder=2)
 
 #%% Vidal
 graph_list.append('Vidal')
@@ -117,7 +118,7 @@ for x in range(len(x_tag)):
                 hatch=hatch_list[y],
                 edgecolor='w',
                 label='k={}'.format(1.0+0.2*y),
-                zorder=10)
+                zorder=2)
 
 #%% Sex
 graph_list.append('Sex')
@@ -140,7 +141,7 @@ for x in range(len(x_tag)):
                 hatch=hatch_list[y],
                 edgecolor='w',
                 label='k={}'.format(1.0+0.2*y),
-                zorder=10)
+                zorder=2)
 
 
 #%% Figeys
@@ -164,7 +165,7 @@ for x in range(len(x_tag)):
                 hatch=hatch_list[y],
                 edgecolor='w',
                 label='k={}'.format(1.0+0.2*y),
-                zorder=10)
+                zorder=2)
 
 #%%
 xx=np.array(range(len(graph_list)))*group_width+0.32*group_width
@@ -173,17 +174,27 @@ plt.yticks([1,3,5,7,9])
 #plt.legend(loc=2,borderpad=0.1,bbox_to_anchor=(1.01,1), fontsize=fontsize-1)  # 显示图例
 
 
-plt.ylabel(r'$\tau$', font2)
+
+#plt.ylabel(r'$\tau$', font2)
+#plt.xlabel(font2)
 plt.tick_params(labelsize=fontsize+8, zorder=30)
 
 # 设置坐标轴粗细
 ax=plt.gca()
+
 ax.spines['bottom'].set_linewidth(1.5);###设置底部坐标轴的粗细
 ax.spines['left'].set_linewidth(1.5);####设置左边坐标轴的粗细
 ax.spines['right'].set_linewidth(1.5);###设置右边坐标轴的粗细
 ax.spines['top'].set_linewidth(1.5);####设置上部坐标轴的粗细
 
-
+plt.grid(axis='y', c="#d9d9d9", zorder=1)#添加水平直线
 
 plt.gcf().subplots_adjust(left=0.13, right=0.9, bottom=0.18, top=0.96)
+plt.savefig('../fig/group_stact_bar.svg',
+            format='svg',
+            dpi=600,
+            transparent=True,#设置图片背景透明
+            bbox_inches='tight')
 plt.show()
+
+#plt.savefig('{}_stackbar.svg'.format(name), format='svg', dpi=600, bbox_inches='tight')
