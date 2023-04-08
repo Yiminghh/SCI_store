@@ -1,20 +1,16 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+from matplotlib import rcParams
 from scipy.stats import rankdata
 
 """
 zorder: 设置图层位置
+颜色用排名，上面的数字用实际值
 """
 
 bar_width = 0.9
 group_width = 10
-fontsize = 13
-font_size = 30
-font2 = {'family': 'Arial',
-         'weight': 'normal',
-         'size': font_size,
-         }
 
 beta1_tag = ['1.0', '1.2', '1.4', '1.6', '1.8', '2.0', '2.2', '2.4', '2.6', '2.8', '3.0']
 x_tag = ['KS', 'DC', 'HI', 'ND', 'RCNN', 'MRCNN', 'HIMnet']
@@ -46,10 +42,20 @@ MRCNN = [0.397782743, 0.367453686, 0.345248999, 0.327778884, 0.3121496, 0.298767
 data1 = np.array([KS, DC, HI, ND, RCNN, MRCNN, HIMnet])
 
 
-# for i in range(3):
-#     asc = rankdata(lastfm[i])
-#     desc = (len(asc) - asc + 1).astype(float)
-#     print(desc)
+
+grid_rank = np.array([[7, 6, 5, 2, 4, 3, 1,],
+[7, 6, 5, 2, 4, 3, 1,],
+[7, 6, 5, 2, 4, 3, 1,],
+[7, 6, 5, 2, 4, 3, 1,],
+[7, 6, 5, 2, 4, 3, 1,],
+[7, 6, 5, 2, 4, 3, 1,],
+[7, 6, 5, 2, 4, 3, 1,],
+[7, 6, 5, 2, 4, 3, 1,],
+[7, 6, 5, 2, 4, 3, 1,],
+[7, 6, 5, 2, 4, 3, 1,],
+[7, 6, 5, 2, 4, 3, 1,],]
+)
+grid_rank = grid_rank.transpose()
 
 # %% Hep
 graph_list.append('Hep')
@@ -69,6 +75,24 @@ MRCNN = [0.824560746, 0.828984034, 0.831867269, 0.832497058, 0.831905462, 0.8302
          0.823932025, 0.821651297, 0.819537945]
 data2 = np.array([KS, DC, HI, ND, RCNN, MRCNN, HIMnet])
 
+
+
+hep_rank = np.array([[6, 7, 5, 4, 3, 2, 1,],
+[6, 7, 5, 4, 3, 2, 1,],
+[6, 7, 5, 4, 3, 2, 1,],
+[6, 7, 5, 4, 3, 2, 1,],
+[6, 7, 5, 4, 3, 2, 1,],
+[6, 7, 5, 4, 3, 2, 1,],
+[6, 7, 5, 4, 3, 2, 1,],
+[6, 7, 5, 3, 4, 2, 1,],
+[6, 7, 5, 3, 4, 2, 1,],
+[6, 7, 5, 3, 4, 2, 1,],
+[6, 7, 5, 3, 4, 2, 1,],
+]
+).transpose()
+
+
+
 # %% Vidal
 graph_list.append('Vidal')
 HIMnet = [0.898493174, 0.895410805, 0.872618451, 0.859944759, 0.892067779, 0.874060894, 0.877558973, 0.857168773,
@@ -87,6 +111,21 @@ MRCNN = [0.842738432, 0.84386809, 0.842473969, 0.834195501, 0.82701823, 0.818577
          0.797031057, 0.791191862, 0.7883791]
 data3 = np.array([KS, DC, HI, ND, RCNN, MRCNN, HIMnet])
 
+
+vidal_rank = np.array([[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+]).transpose()
+
+
 # %% Sex
 graph_list.append('Sex')
 HIMnet = [0.895440528, 0.901066306, 0.89132442, 0.884526659, 0.876779261, 0.881540805, 0.876966555, 0.851961973,
@@ -104,6 +143,21 @@ RCNN = [0.782035628, 0.785298537, 0.780864626, 0.773159502, 0.765456728, 0.75531
 MRCNN = [0.83655786, 0.834092122, 0.824555878, 0.81215672, 0.80065297, 0.788736454, 0.778940049, 0.771240369,
          0.764188038, 0.756903003, 0.751851277]
 data4 = np.array([KS, DC, HI, ND, RCNN, MRCNN, HIMnet])
+
+
+
+sex_rank = np.array([[5, 7, 6, 2, 4, 3, 1,],
+[5, 7, 6, 2, 4, 3, 1,],
+[5, 7, 6, 2, 4, 3, 1,],
+[4, 7, 6, 2, 5, 3, 1,],
+[4, 7, 5, 2, 6, 3, 1,],
+[2, 6, 3, 4, 7, 5, 1,],
+[2, 6, 3, 4, 7, 5, 1,],
+[2, 4, 3, 5, 7, 6, 1,],
+[2, 4, 3, 5, 7, 6, 1,],
+[2, 4, 3, 5, 7, 6, 1,],
+[2, 4, 3, 5, 7, 6, 1,],
+]).transpose()
 
 # %% Figeys
 graph_list.append('Figeys')
@@ -124,6 +178,19 @@ MRCNN = [0.81900113, 0.82499129, 0.83211419, 0.83664992, 0.84212759, 0.84455272,
 data5 = np.array([KS, DC, HI, ND, RCNN, MRCNN, HIMnet])
 
 
+figeys_rank = np.array([[5, 7, 6, 2, 4, 3, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[5, 7, 6, 3, 4, 2, 1,],
+[4, 7, 5, 3, 6, 1, 2,],
+[4, 7, 5, 3, 6, 2, 1,],
+[4, 7, 5, 3, 6, 2, 1,],
+[3, 7, 5, 4, 6, 2, 1,],
+[3, 7, 4, 5, 6, 2, 1,]
+]).transpose()
+
 graph_list.append('GrQ')
 HIMnet = [0.761525585, 0.758653903, 0.749895216, 0.748389003, 0.745095455, 0.741726271, 0.742323129, 0.73913136,
           0.74045305, 0.742534258, 0.736574205]
@@ -141,43 +208,93 @@ MRCNN = [0.686099908, 0.675915091, 0.67050356, 0.666987828, 0.664040573, 0.66234
          0.658941464, 0.658091297, 0.65652103]
 data6 = np.array([KS, DC, HI, ND, RCNN, MRCNN, HIMnet])
 
-zero_null = np.zeros((7, 11))
+# for i in range(11):
+#     asc = rankdata(data6[:, i])
+#     desc = (len(asc) - asc + 1).astype(float)
+#     print(desc)
 
-data1 = np.c_[data1, data3]
-data1 = np.c_[data1, data5]
-data2 = np.c_[data2, data4]
-data2 = np.c_[data2, data6]
-data = np.r_[data1, data2]
-
-plt.ylabel(r'$\tau$', font2)
-plt.xlabel(font2)
-plt.tick_params(labelsize=fontsize + 8, zorder=30)
-
-# 设置坐标轴粗细
-ax = plt.gca()
-
-ax.spines['bottom'].set_linewidth(1.5)  ###设置底部坐标轴的粗细
-ax.spines['left'].set_linewidth(1.5)  ####设置左边坐标轴的粗细
-ax.spines['right'].set_linewidth(1.5)  ###设置右边坐标轴的粗细
-ax.spines['top'].set_linewidth(1.5)  ####设置上部坐标轴的粗细
-
-# plt.savefig('group_correlation.svg',
-#             format='svg',
-#             dpi=600,
-#             transparent=True,#设置图片背景透明
-#             bbox_inches='tight')
-
-# plt.savefig('{}_stackbar.svg'.format(name), format='svg', dpi=600, bbox_inches='tight')
+grq_rank = np.array([[6, 7, 5, 2, 3, 4, 1,],
+[7, 6, 5, 2, 3, 4, 1,],
+[7, 6, 5, 2, 3, 4, 1,],
+[7, 6, 5, 2, 3, 4, 1,],
+[7, 6, 5, 2, 3, 4, 1,],
+[7, 6, 5, 2, 3, 4, 1,],
+[7, 6, 5, 2, 3, 4, 1,],
+[7, 6, 5, 2, 3, 4, 1,],
+[7, 6, 5, 1, 3, 4, 2,],
+[7, 6, 5, 1, 3, 4, 2,],
+[7, 6, 5, 1, 3, 4, 2,],]
+).transpose()
 
 
-# fig, ax = plt.subplots(figsize=(21, 22))
 
-sns.heatmap(data, annot=True, vmax=1, vmin=7, xticklabels=False,
-            yticklabels=False,
-            square=True, cmap="coolwarm")
-ax.set_title('', fontsize=18)
+
+# graph_list.append('Zealand')
+# HIMnet = [0.857360777, 0.86315199, 0.876005608, 0.848841653, 0.869332604, 0.856701782, 0.849920738, 0.810801671,
+#           0.858263641, 0.86081728, 0.85793633, 0.863995218]
+# RCNN = [0.8347780733780094, 0.8263857539193815, 0.8184317214598463, 0.8061929952971805, 0.7957477395348022, 0.7890840240005961, 0.7781426273552448, 0.7738544273561213, 0.7685669329990664, 0.7602850618642099, 0.7569663527070797]
+# MRCNN = [0.8523726666695886, 0.8681597643769093, 0.8836312954448832, 0.8915958467923967, 0.8994254057441894, 0.9039572933148085, 0.9029071576649822, 0.9054351970757492, 0.9067991462169258, 0.9016238533316386, 0.8992728818685051]
+#
+# DC = [0.663197414, 0.679851927, 0.695172573, 0.70813297, 0.722028064, 0.730749926, 0.741005069, 0.747441874,
+#       0.753450368, 0.760840219, 0.765947464]
+# KS = [0.66855813, 0.686097655, 0.701230486, 0.714498736, 0.728298277, 0.736976161, 0.74753824, 0.754459183, 0.760266531,
+#       0.768109737, 0.772932731]
+# ND = [0.841953955, 0.823983633, 0.809880592, 0.795202412, 0.780177036, 0.772937328, 0.76221101, 0.755130622,
+#       0.749555915, 0.740562788, 0.737286366]
+# HI = [0.66827771, 0.68566419, 0.70086415, 0.714323183, 0.728064921, 0.736785429, 0.747342493, 0.754369587, 0.760097943,
+#       0.768128558, 0.772927424]
+
+# zero_null = np.zeros((7, 11))
+#
+# data1 = np.c_[data1, data3]
+# data1 = np.c_[data1, data5]
+# data2 = np.c_[data2, data4]
+# data2 = np.c_[data2, data6]
+# data = np.r_[data1, data2]
+grid_rank = np.c_[grid_rank, vidal_rank]
+grid_rank = np.c_[grid_rank, figeys_rank]
+hep_rank = np.c_[hep_rank, sex_rank]
+hep_rank = np.c_[hep_rank, grq_rank]
+data = np.r_[grid_rank, hep_rank]
+
+
+
+
+#%%
+
+fontsize = 15
+config = {
+            "font.family": 'Arial',
+            "font.size": fontsize,# 相当于小四大小
+            "mathtext.fontset": 'stix',#matplotlib渲染数学字体时使用的字体，和Times New Roman差别不大
+            "font.serif": ['SimSun'],#宋体
+            'axes.unicode_minus': False # 处理负号，即-号
+         }
+rcParams.update(config)
+f, ax = plt.subplots(figsize=(15, 8))
+
+ax = sns.heatmap(data = data,
+                 annot=True,
+                 vmax=1,
+                 vmin=7,
+                 xticklabels=False,
+                 yticklabels=False,
+                 square=True,
+                 cmap="YlGnBu")
+
+cbar = ax.collections[0].colorbar
+#cbar.ax.tick_params(labelsize=10)#调整colorbar的labelsize
+cbar.ax.invert_yaxis()#颠倒colorbar
+
 # ax.set_ylabel('05BDCEP', fontsize=18)
 # ax.set_xlabel('05BDCEP', fontsize=18)  # 横变成y轴，跟矩阵原始的布局情况是一样的
 # ax.set_yticklabels(['一', '二', '三'], fontsize=18, rotation=360, horizontalalignment='right')
 # ax.set_xticklabels(['a', 'b', 'c'], fontsize=18, horizontalalignment='right')
-plt.show(block=True)
+#plt.show(block=True)
+
+plt.savefig('../fig/0-corr.svg',
+            format='svg',
+            dpi=600,
+            transparent=True,#设置图片背景透明
+            bbox_inches='tight')
+

@@ -35,7 +35,7 @@ data = np.array([PH, Crime, Collaboration, Grid])
 
 
 nets = ['PH', 'Crime', 'Collaboration', 'Grid']
-methods = ['BPD', 'CNE', 'GNDR', 'CoreHD', 'MinSum', 'Betweenness', 'VER']
+methods = ['BPD', 'CNE', 'GNDR', 'CoreHD', 'MinSum', 'Betweenness', 'VE']
 color_list = ['#b8f0d7','#72bdf0','#fc998e','#fdc381']
 #edge_color_list=["#6bc2c8","#d9d9d9","#f1bfb4","#f0d2b1"]
 x = 1.3*np.arange(len(nets))  # 标签位置
@@ -90,8 +90,8 @@ plt.grid(axis='y', c="#d9d9d9", zorder=0)#添加水平直线
 plt.gcf().subplots_adjust(left=0.1, right=0.99, bottom=0.28, top=0.93)
 
 
-plt.savefig('../fig/stack_robustness.svg',
-            format='svg',
+plt.savefig('../fig/stack_robustness.pdf',
+            format='pdf',
             dpi=600,
             transparent=True,#设置图片背景透明
             bbox_inches='tight')
