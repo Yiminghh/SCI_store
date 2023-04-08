@@ -26,7 +26,7 @@ for i in range(len(x_tag)):
 # %% Grid
 graph_list.append('Grid')
 HIMnet = [0.594913147, 0.536006348, 0.521074039, 0.400235268, 0.486687821, 0.449513914, 0.322743644, 0.377273792,
-          0.367456887, 0.349007975, 0.221251023]
+          0.367456887, 0.349007975, 0.35184776]
 DC = [0.306891006, 0.281566167, 0.264447645, 0.249995338, 0.238680046, 0.228988183, 0.218077683, 0.207687728,
       0.196178146, 0.18425336, 0.179983169]
 KS = [0.282588493, 0.255404948, 0.235432529, 0.218173193, 0.203962394, 0.190891668, 0.177967753, 0.166896169,
@@ -245,12 +245,15 @@ grq_rank = np.array([[6, 7, 5, 2, 3, 4, 1,],
 #       0.768128558, 0.772927424]
 
 # zero_null = np.zeros((7, 11))
-#
+
+# 原始数据
 # data1 = np.c_[data1, data3]
 # data1 = np.c_[data1, data5]
 # data2 = np.c_[data2, data4]
 # data2 = np.c_[data2, data6]
 # data = np.r_[data1, data2]
+
+# 排名
 grid_rank = np.c_[grid_rank, vidal_rank]
 grid_rank = np.c_[grid_rank, figeys_rank]
 hep_rank = np.c_[hep_rank, sex_rank]
@@ -271,12 +274,13 @@ config = {
             'axes.unicode_minus': False # 处理负号，即-号
          }
 rcParams.update(config)
-f, ax = plt.subplots(figsize=(15, 8))
+f, ax = plt.subplots(figsize=(30, 16))
 
 ax = sns.heatmap(data = data,
                  annot=True,
-                 vmax=1,
-                 vmin=7,
+                 vmin=1,
+                 vmax=7,
+                 #fmt=".2f",
                  xticklabels=False,
                  yticklabels=False,
                  square=True,
