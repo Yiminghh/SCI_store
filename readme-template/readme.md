@@ -1,9 +1,9 @@
 <h1 align="center"> Influential Simplices Mining via Simplicial Convolutional Networks </h1>
 
 <div align="center">
-  <a href="http://yujie.world/">Yuejie Zeng</a> <sup>1</sup> &ensp; <b>&middot</b> &ensp;
-  <a href="https://yimingh.top/">Yiming Huang</a> <sup>2</sup> &ensp; <b>&middot</b> &ensp;
-  <a href="https://scholar.google.co.uk/citations?hl=en&user=edUqF7sAAAAJ&view_op=list_works&sortby=pubdate">Qiang Wu</a> <sup>3</sup> &ensp; <b>&middot</b> &ensp;
+  <a href="http://yujie.world/">Yuejie Zeng</a> <sup>1</sup> &ensp; <b>&middot;</b> &ensp;
+  <a href="https://yimingh.top/">Yiming Huang</a> <sup>2</sup> &ensp; <b>&middot;</b> &ensp;
+  <a href="https://scholar.google.co.uk/citations?hl=en&user=edUqF7sAAAAJ&view_op=list_works&sortby=pubdate">Qiang Wu</a> <sup>3</sup> &ensp; <b>&middot;</b> &ensp;
   <a href="https://linyuanlab.com/">Linyuan Lü</a> <sup>4</sup>
   <br> <br> 
 <sup>1</sup> yujie_zeng@std.uestc.edu.cn  
