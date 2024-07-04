@@ -20,7 +20,7 @@
 </h3>
 
 
-Published in *Information Processing & Management (2024)*.
+Official Implementations of ISMnet(*Information Processing & Management 2024)*.
 
 Detected an inconsistency between mining influential nodes and simplices. Innovatively formulated the influential simplices mining task as a graph learning problem and designed an influential simplices mining neural network (ISMnet) that achieves SOTA performance in this task.
 <div align="center">
@@ -70,3 +70,5 @@ Please cite our work if you find our code/paper is useful to your work. :
 
  
 Thank you for your interest in our work. If you have any questions or encounter any issues while using our code, please don't hesitate to raise an issue or reach out to us directly.
+
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=Yiminghh/HiGCN)
