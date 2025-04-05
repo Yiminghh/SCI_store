@@ -4,6 +4,12 @@
 # Tools
 该文件夹中存放一些常用的实用代码
 
+
+# HoGen
+
+1. train_loss_curve.py
+![](./fig/training_loss.svg)
+
 # CNL
 
 ## 1. fig_half_heatmap.ipynb
