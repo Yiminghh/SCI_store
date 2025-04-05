@@ -71,5 +71,7 @@ Please cite our work if you find our code/paper is useful to your work. :
 
 
  
-Thank you for your interest in our work. If you have any questions or encounter any issues while using our code, please don't hesitate to raise an issue or reach out to us directly.
+🍀 **Thank you for your interest in our work.** 🍀
+
+If you have any questions or encounter any issues while using our code, please don't hesitate to raise an issue or reach out to us directly.
 
