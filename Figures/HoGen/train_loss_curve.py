@@ -8,7 +8,7 @@ import pickle
 
 def process_logs_and_plot():
 
-    with open('./data/train_loss_curve.pkl', 'rb') as f:
+    with open('data/train_loss_curve.pkl', 'rb') as f:
         ho_losses, OU_losses, noise_losses = pickle.load(f)
 
     # 计算均值和标准差
