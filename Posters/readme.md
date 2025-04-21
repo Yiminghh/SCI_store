@@ -1,5 +1,6 @@
 # Poster 收集
 
+![](HiGCN-AAAI2024-poster.png)
 
 
 # 优秀资料收集
